@@ -1,0 +1,6 @@
+EXEC sp_resetstatus [NamaDatabase];
+ALTER DATABASE [NamaDatabase] SET EMERGENCY
+DBCC checkdb([NamaDatabase])
+ALTER DATABASE [NamaDatabase] SET SINGLE_USER WITH ROLLBACK IMMEDIATE
+DBCC CheckDB ([NamaDatabase], REPAIR_ALLOW_DATA_LOSS)
+ALTER DATABASE [NamaDatabase] SET MULTI_USER
